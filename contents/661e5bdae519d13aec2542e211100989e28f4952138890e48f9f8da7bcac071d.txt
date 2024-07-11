@@ -1,0 +1,45 @@
+PT ARTA QLOBAL FUKRES
+PT. ARTA GLOBAL SUKSES
+No Invoice:
+ITEM DESCRIPTION
+SWIFT BRISKET NE
+Tanggal DO
+Tanggal Invoice
+Tuan/Toko:
+16 April 2024
+16 April 2024
+PT. TANAKA GRAHA INDONESIA
+JAKARTA
+3894/16/04/24/BKS
+Surat Jalan:
+A 45896
+Salesman: Andry
+CODE
+4174
+CTN
+257
+QTY/KGs
+5004.86
+PRICE
+TOTAL
+115,000 Rp
+575,558,900
+PAYMENT TERMS
+Days after received the goods :
+14 D
+257
+5,004.86
+30-04-24
+PLEASE REMIT THE PAYMENT TO OUR BANK AS FOLLOWS:
+BANK BCA:
+A/C NO. 666-666-1-888
+BANK BRI:
+A/C NO. 038-601-001-797-307
+A/N PT. ARTA GLOBAL SUKSES
+Note: Setiap melakukan pembayaran mohon melakukan konfirmasi
+aiau memberi berita nomor invoice
+Received By
+Rp
+575,558,900.00
+For and on the behalf of,
+PT. Arta Global Sukses

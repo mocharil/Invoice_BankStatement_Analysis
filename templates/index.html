@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Dashboard</title>
+    <style>
+        /* Your existing styles */
+       body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 50%;
+            min-width: 300px;
+        }
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        .title {
+            color: #333333;
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="file"] {
+            display: block;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #004494;
+        }
+        .option-section {
+            margin-bottom: 20px;
+        }
+        .option-section label, .option-section span {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .option-section select, .option-section input[type="checkbox"] {
+            margin-bottom: 10px;
+        }
+        .description {
+            font-size: 0.9em;
+            color: #666;
+        }
+        /* Toggle Styles */
+        .switch {
+          position: relative;
+          display: inline-block;
+          width: 60px;
+          height: 34px;
+        }
+        .switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          transition: .4s;
+          border-radius: 34px;
+        }
+        .slider:before {
+          position: absolute;
+          content: "";
+          height: 26px;
+          width: 26px;
+          left: 4px;
+          bottom: 4px;
+          background-color: white;
+          transition: .4s;
+          border-radius: 50%;
+        }
+        input:checked + .slider {
+          background-color: #2196F3;
+        }
+        input:focus + .slider {
+          box-shadow: 0 0 1px #2196F3;
+        }
+        input:checked + .slider:before {
+          transform: translateX(26px);
+        }
+        /* Style for the toggle and the toggle label */
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            margin-bottom: 20px;
+        }
+        .toggle-label {
+            margin-left: 10px;
+            font-weight: bold;
+        }
+
+        /* Styles for the toggle switch */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            margin-right: 10px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Upload Your Bank Statement and Invoices</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <!-- Bank statement input -->
+            <div>
+                <label for="bankStatement">Bank Statements:</label>
+                <input type="file" id="bankStatement" name="bankStatement" multiple required>
+            </div>
+            <!-- Invoices input -->
+            <div>
+                <label for="invoices">Invoices:</label>
+                <input type="file" id="invoices" name="invoices" multiple required>
+            </div>
+            <!-- OCR version toggle -->
+            <div class="toggle-container">
+                <label class="switch">
+                    <input type="checkbox" id="ocrToggle" name="ocrVersion" onchange="updateLabel(this)">
+                    <span class="slider"></span>
+                </label>
+                <span id="toggleLabel" class="toggle-label">Free</span>
+            </div>
+            <!-- Processing options -->
+            <div class="option-section">
+                <label for="processingOptions">Processing Options:</label>
+                <select id="processingOptions" name="processingOptions" required>
+                    <option value="matching">Matching</option>
+                    <option value="all">Matching and Analysis</option>
+                </select>
+                <div class="description">
+                    Choosing "Analysis" will increase processing latency and costs.
+                </div>
+            </div>
+            <!-- Submit button -->
+            <button type="submit">Upload Files</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to update the label based on the toggle state
+        function updateLabel(toggle) {
+            var label = document.getElementById('toggleLabel');
+            if (toggle.checked) {
+                label.textContent = 'Premium';
+            } else {
+                label.textContent = 'Free';
+            }
+        }
+    </script>
+</body>
+</html>
+
